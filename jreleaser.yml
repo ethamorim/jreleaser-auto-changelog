@@ -15,6 +15,9 @@ project:
 release:
   github:
     owner: ethamorim
+    token: ${{ secrets.GH_PAT }}
+    changelog:
+      formatted: ALWAYS
 
 distributions:
   app:
