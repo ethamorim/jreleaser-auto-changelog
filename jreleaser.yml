@@ -1,22 +1,20 @@
 # Generated with JReleaser 1.14.0 at 2024-10-02T14:35:18.2212507-03:00
 project:
-  name: app
+  name: auto-changelog
   version: 1.0.0-SNAPSHOT
-  description: Awesome App
-  longDescription: Awesome App
+  description: Automatized Changelog
+  longDescription: Automatizing changelogs
   authors:
-    - Duke
+    - Ethaniel Amorim
   license: Apache-2.0
-  links:
-    homepage: https://acme.com/app
   java:
-    groupId: com.acme
+    groupId: br.ethamorim
     version: 8
   inceptionYear: 2024
 
 release:
   github:
-    owner: duke
+    owner: ethamorim
 
 distributions:
   app:
