@@ -18,6 +18,7 @@ release:
     token: ${{ secrets.GH_PAT }}
     changelog:
       formatted: ALWAYS
+      preset: conventional-commits
 
 distributions:
   app:
