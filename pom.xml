@@ -1,0 +1,88 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>br.ethamorim.autochangelog</groupId>
+  <artifactId>auto-changelog</artifactId>
+  <packaging>jar</packaging>
+  <version>1.0-SNAPSHOT</version>
+
+  <name>auto-changelog</name>
+  <description>Automatized Changelog</description>
+  <url>http://maven.apache.org</url>
+
+  <dependencies>
+    <dependency>
+      <groupId>junit</groupId>
+      <artifactId>junit</artifactId>
+      <version>3.8.1</version>
+      <scope>test</scope>
+    </dependency>
+  </dependencies>
+
+  <properties>
+    <app.main.class>br.ethamorim.autochangelog.App</app.main.class>
+    <app.distribution.directory>/out/jreleaser/release</app.distribution.directory>
+  </properties>
+
+  <build>
+    <plugins>
+      <plugin>
+        <groupId>org.jreleaser</groupId>
+        <artifactId>jreleaser-maven-plugin</artifactId>
+        <version>1.14.0</version>
+        <inherited>false</inherited>
+        <configuration>
+          <jreleaser>
+            <project>
+              <name>${name}</name>
+              <version>${version}</version>
+              <description>${description}</description>
+              <license>Apache-2.0</license>
+              <copyright>2024 ethamorim</copyright>
+              <authors>
+                <author>Ethaniel Amorim</author>
+              </authors>
+              <java>
+                <groupId>${groupId}</groupId>
+                <mainClass>${app.main.class}</mainClass>
+                <version>8</version>
+              </java>
+            </project>
+            <release>
+              <github>
+                <token>secrets.GH_PAT</token>
+                <owner>ethamorim</owner>
+                <changelog>
+                  <formatted>ALWAYS</formatted>
+                  <preset>conventional-commits</preset>
+                  <hide>
+                    <categories>
+                      <category>merge</category>
+                    </categories>
+                  </hide>
+                </changelog>
+              </github>
+            </release>
+            <distributions>
+              <app>
+                <artifacts>
+                  <artifact>
+                    <path>
+                      ${app.distribution.directory}/${project.artifactId}-${project.version}.zip
+                    </path>
+                  </artifact>
+                  <artifact>
+                    <path>
+                      ${app.distribution.directory}/${project.artifactId}-${project.version}.tar.gz
+                    </path>
+                  </artifact>
+                </artifacts>
+              </app>
+            </distributions>
+          </jreleaser>
+        </configuration>
+      </plugin>
+    </plugins>
+  </build>
+</project>
