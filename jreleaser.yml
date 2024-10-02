@@ -19,6 +19,9 @@ release:
     changelog:
       formatted: ALWAYS
       preset: conventional-commits
+      hide:
+        categories:
+          - merge
 
 distributions:
   app:
