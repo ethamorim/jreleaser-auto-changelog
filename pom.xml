@@ -35,16 +35,16 @@
         <configuration>
           <jreleaser>
             <project>
-              <name>${name}</name>
-              <version>${version}</version>
-              <description>${description}</description>
+              <name>${project.name}</name>
+              <version>${project.version}</version>
+              <description>${project.description}</description>
               <license>Apache-2.0</license>
               <copyright>2024 ethamorim</copyright>
               <authors>
                 <author>Ethaniel Amorim</author>
               </authors>
               <java>
-                <groupId>${groupId}</groupId>
+                <groupId>${project.groupId}</groupId>
                 <mainClass>${app.main.class}</mainClass>
                 <version>8</version>
               </java>
